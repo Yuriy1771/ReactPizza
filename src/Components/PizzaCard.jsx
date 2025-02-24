@@ -1,29 +1,37 @@
-import React from 'react'
-import pizza from '../img/pizza.png'
+import React, {useState} from 'react'
 
-const PizzaCard = ({price}) => {
+const PizzaCard = ({price, title, imgUrl, sizes, types}) => {
+    const [curIndexPizzaSize, setCurIndexPizzaSize] = useState(0)
+    const [curIndexPizzaType, setCurIndexPizzaType] = useState(0)
+
+    const onClickPizzaSize = (index) => {
+        setCurIndexPizzaSize(index)
+    }
+
+    const onClickPizzaType = (index) => {
+        setCurIndexPizzaType(index)
+    }
     return (
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                src={pizza}
+                src={imgUrl}
                 alt="Pizza"
             />
-            <h4 className="pizza-block__title">Чизбургер-пицца</h4>
+            <h4 className="pizza-block__title">{title}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    <li className="active">тонкое</li>
-                    <li>традиционное</li>
+                    {types.map((type, index) => <li onClick={() =>
+                        onClickPizzaType(index)} className={index === curIndexPizzaType ? 'active' : ''}>{type === 0 ? 'тонкое' : 'традиционное'}</li>)}
                 </ul>
                 <ul>
-                    <li className="active">26 см.</li>
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    {sizes.map((size, index) => <li onClick={() => onClickPizzaSize(index)}
+                                                    className={index === curIndexPizzaSize ? 'active' : ''}>{size + 'см.'}</li>)}
                 </ul>
             </div>
             <div className="pizza-block__bottom">
                 <div className="pizza-block__price">от {price}₽</div>
-                <div className="button button--outline button--add">
+                <button className="button button--outline button--add">
                     <svg
                         width="12"
                         height="12"
@@ -37,8 +45,8 @@ const PizzaCard = ({price}) => {
                         />
                     </svg>
                     <span>Добавить</span>
-                    <i>2</i>
-                </div>
+                    <i>0</i>
+                </button>
             </div>
         </div>
     )
