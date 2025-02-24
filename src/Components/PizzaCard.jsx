@@ -4,13 +4,8 @@ const PizzaCard = ({price, title, imgUrl, sizes, types}) => {
     const [curIndexPizzaSize, setCurIndexPizzaSize] = useState(0)
     const [curIndexPizzaType, setCurIndexPizzaType] = useState(0)
 
-    const onClickPizzaSize = (index) => {
-        setCurIndexPizzaSize(index)
-    }
+    const typePizzas = ['тонкое', 'традиционное']
 
-    const onClickPizzaType = (index) => {
-        setCurIndexPizzaType(index)
-    }
     return (
         <div className="pizza-block">
             <img
@@ -21,12 +16,12 @@ const PizzaCard = ({price, title, imgUrl, sizes, types}) => {
             <h4 className="pizza-block__title">{title}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    {types.map((type, index) => <li onClick={() =>
-                        onClickPizzaType(index)} className={index === curIndexPizzaType ? 'active' : ''}>{type === 0 ? 'тонкое' : 'традиционное'}</li>)}
+                    {types.map((type, index) => <li onClick={() => setCurIndexPizzaType(index)}
+                                                    className={index === curIndexPizzaType ? 'active' : ''} key={index}>{typePizzas[type]}</li>)}
                 </ul>
                 <ul>
-                    {sizes.map((size, index) => <li onClick={() => onClickPizzaSize(index)}
-                                                    className={index === curIndexPizzaSize ? 'active' : ''}>{size + 'см.'}</li>)}
+                    {sizes.map((size, index) => <li onClick={() => setCurIndexPizzaSize(index)}
+                                                    className={index === curIndexPizzaSize ? 'active' : ''} key={index}>{size + 'см.'}</li>)}
                 </ul>
             </div>
             <div className="pizza-block__bottom">

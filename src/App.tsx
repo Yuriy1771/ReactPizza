@@ -10,7 +10,7 @@ function App() {
 
     const pizzaComponents = pizzas.map((pizza) => <PizzaCard price={pizza.price} title={pizza.title}
                                                              imgUrl={pizza.imgUrl} sizes={pizza.sizes}
-                                                             types={pizza.types}/>)
+                                                             types={pizza.types} key={pizza.id}/>)
     return (
         <div className="wrapper">
             <Header/>
