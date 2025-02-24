@@ -1,5 +1,6 @@
 import React from 'react'
 import pizza from '../img/pizza.png'
+
 const PizzaCard = ({price}) => {
     return (
         <div className="pizza-block">
