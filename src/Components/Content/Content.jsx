@@ -14,6 +14,7 @@ const Content = (props) => {
                 setPizzas(response.data)
                 setIsLoading(true)
         })
+        window.scrollTo(0, 0)
     }, [])
 
     const pizzaComponents = pizzas.map((pizza) => <PizzaCard price={pizza.price} title={pizza.title}
@@ -28,7 +29,7 @@ const Content = (props) => {
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
                 <div className="content__items">
-                    {!isLoading ? [...new Array(6)].map((_, index) => <Skeleton key={index}/>) : pizzaComponents}
+                    {!isLoading ? [...new Array(8)].map((_, index) => <Skeleton key={index}/>) : pizzaComponents}
                 </div>
             </div>
         </div>
