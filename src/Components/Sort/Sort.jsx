@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 
-const Sort = () => {
+const Sort = ({selectedSort, setSelectedSort}) => {
     const [editMode, setEditMode] = useState(false)
-    const [selectedSort, setSelectedSort] = useState(0)
 
-    const listsMenu = ['популярности', 'цене', 'алфавиту']
+    const selectedMenu = ['популярности (убыв.)', 'цене (убыв.)', 'алфавиту']
 
     const onClickSort = (index) => {
         setSelectedSort(index)
@@ -27,13 +26,13 @@ const Sort = () => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={() => setEditMode(!editMode)}>{listsMenu[selectedSort]}</span>
+                <span onClick={() => setEditMode(!editMode)}>{selectedMenu[selectedSort]}</span>
             </div>
             {editMode &&
                 <div className="sort__popup">
                     <ul>
                         {
-                            listsMenu.map((list, index) => <li onClick={() => onClickSort(index)}
+                            selectedMenu.map((list, index) => <li onClick={() => onClickSort(index)}
                                                                className={index === selectedSort ? 'active' : ''} key={index}>{list}</li>)
                         }
                     </ul>

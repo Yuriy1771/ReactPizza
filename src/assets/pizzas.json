@@ -13,7 +13,7 @@
       40
     ],
     "price": 489,
-    "category": 0,
+    "category": 1,
     "rating": 4
   },
   {
@@ -28,7 +28,7 @@
       40
     ],
     "price": 245,
-    "category": 0,
+    "category": 1,
     "rating": 6
   },
   {
@@ -43,7 +43,7 @@
       40
     ],
     "price": 499,
-    "category": 1,
+    "category": 4,
     "rating": 4
   },
   {
@@ -76,7 +76,7 @@
       40
     ],
     "price": 415,
-    "category": 3,
+    "category": 1,
     "rating": 8
   },
   {
@@ -91,7 +91,7 @@
       40
     ],
     "price": 580,
-    "category": 2,
+    "category": 1,
     "rating": 2
   },
   {
@@ -125,7 +125,7 @@
       40
     ],
     "price": 450,
-    "category": 4,
+    "category": 1,
     "rating": 10
   },
   {
@@ -142,7 +142,7 @@
       40
     ],
     "price": 395,
-    "category": 5,
+    "category": 1,
     "rating": 10
   },
   {
@@ -159,7 +159,109 @@
       40
     ],
     "price": 285,
+    "category": 1,
+    "rating": 7
+  },
+  {
+    "id": 10,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee7970259d888e98b6407ee6b994d9.avif",
+    "title": "Додстер с ветчиной",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 250,
     "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 10,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee796f96d11392a2f6dd73599921b9.avif",
+    "title": "Додстер",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 200,
+    "category": 5,
+    "rating": 7
+  },
+  {
+    "id": 11,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee7d6149eb101d8727573088fa2eff.avif",
+    "title": "Диабло",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 200,
+    "category": 4,
+    "rating": 7
+  },
+  {
+    "id": 12,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee7d61b044583596548a59078bbd33.avif",
+    "title": "Кофе Американо",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 200,
+    "category": 4,
+    "rating": 7
+  },
+  {
+    "id": 13,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee7d61b044583596548a59078bbd33.avif",
+    "title": "Кофе Капучино",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 200,
+    "category": 4,
+    "rating": 7
+  },
+  {
+    "id": 14,
+    "imgUrl": "https://media.dodostatic.net/image/r:584x584/11ee7d61b0c26a3f85d97a78feee00ad.avif",
+    "title": "Кофе Латте",
+    "types": [
+      0,
+      1
+    ],
+    "sizes": [
+      26,
+      30,
+      40
+    ],
+    "price": 200,
+    "category": 4,
     "rating": 7
   }
 ]
