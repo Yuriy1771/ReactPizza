@@ -34,7 +34,7 @@ const Sort = () => {
                     <ul>
                         {
                             listsMenu.map((list, index) => <li onClick={() => onClickSort(index)}
-                                                               className={index === selectedSort ? 'active' : ''}>{list}</li>)
+                                                               className={index === selectedSort ? 'active' : ''} key={index}>{list}</li>)
                         }
                     </ul>
                 </div>

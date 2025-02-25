@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './scss/app.scss';
 import Header from "./Components/Header";
 import Categories from "./Components/Categories";
 import Sort from "./Components/Sort";
 import PizzaCard from "./Components/PizzaCard";
-import pizzas from './assets/pizzas.json'
+import axios from "axios";
+import {PizzaAPI} from "./Dal/api";
 
 function App() {
+    const [pizzas, setPizzas] = useState<any>([])
 
-    const pizzaComponents = pizzas.map((pizza) => <PizzaCard price={pizza.price} title={pizza.title}
+    useEffect(() => {
+        axios.get('https://67bd631a321b883e790c3eac.mockapi.io/items').then(response => {
+            setPizzas(response.data)
+        })
+    }, [])
+
+    const pizzaComponents = pizzas.map((pizza:any) => <PizzaCard price={pizza.price} title={pizza.title}
                                                              imgUrl={pizza.imgUrl} sizes={pizza.sizes}
                                                              types={pizza.types} key={pizza.id}/>)
     return (
