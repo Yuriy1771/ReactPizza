@@ -1,0 +1,23 @@
+.paginationWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+
+  .paginationItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    text-align: center;
+    border: 1px solid #fe5f1e;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .pageNumber {
+      color: #fe5f1e;
+
+    }
+  }
+}

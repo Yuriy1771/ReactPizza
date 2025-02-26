@@ -3,7 +3,7 @@ import pizzaLogo from '../../assets/img/pizza-logo.svg'
 import {NavLink} from "react-router-dom";
 import Search from "../other/Search/Search";
 
-const Header = ({search, setSearch}) => {
+const Header = ({searchValue, setSearchValue}) => {
     return (
         <div className="header">
             <div className="container">
@@ -14,7 +14,7 @@ const Header = ({search, setSearch}) => {
                         <p>самая вкусная пицца во вселенной</p>
                     </div>
                 </NavLink>
-                <Search search={search} setSearch={setSearch}/>
+                <Search searchValue={searchValue} setSearchValue={setSearchValue}/>
                 <div className="header__cart">
                     <NavLink to="/cart" className="button button--cart">
                         <span>520 ₽</span>
