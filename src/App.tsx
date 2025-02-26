@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './scss/app.scss';
 import Header from "./Components/Header/Header";
 import Content from "./Components/Content/Content";
@@ -7,12 +7,14 @@ import Cart from "./Components/Cart/Cart";
 import NotFound from "./Components/other/NotFound/NotFound";
 
 function App() {
+    const [search, setSearch] = useState('')
+
     return (
         <div className="wrapper">
-            <Header/>
+            <Header search={search} setSearch={setSearch}/>
             <div className="content">
                 <Routes>
-                    <Route path={'/'} element={<Content/>}/>
+                    <Route path={'/'} element={<Content />}/>
                     <Route path={'cart/*'} element={<Cart/>}/>
                     <Route path={'*'} element={<NotFound/>}/>
                 </Routes>

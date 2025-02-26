@@ -1,0 +1,23 @@
+.searchWrapper {
+  position: relative;
+  //left: -120px;
+  img {
+    width: 20px;
+    opacity: .3;
+    position: absolute;
+    left: 7px;
+    top:8px;
+  }
+
+  .inputSearch {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 30px;
+    outline: none;
+    width: 300px;
+    border-radius: 12px;
+
+    &:focus {
+      transition: .3s;
+    }
+  }
+}
