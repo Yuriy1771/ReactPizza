@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
+import {useDispatch} from "react-redux";
+import {setSort} from "../../redux/slices/filterSlice";
 
-const Sort = ({selectedSort, setSelectedSort}) => {
+const Sort = ({selectedSort}) => {
     const [editMode, setEditMode] = useState(false)
-
+    const dispatch = useDispatch()
     const selectedMenu = ['популярности (убыв.)', 'цене (убыв.)', 'алфавиту']
 
     const onClickSort = (index) => {
-        setSelectedSort(index)
+        dispatch(setSort(index))
         setEditMode(false)
     }
 

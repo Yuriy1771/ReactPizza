@@ -15,7 +15,6 @@ const Pagination = ({setPage}) => {
     const onClickPage = (page) => {
         setPage(page.target.outerText)
     }
-    console.log(pages)
 
     return (
         <div className={styles.paginationWrapper}>

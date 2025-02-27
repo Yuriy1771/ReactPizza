@@ -1,21 +1,25 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Skeleton from "../other/Skeleton";
 import axios from "axios";
 import PizzaCard from "./PizzaCard/PizzaCard";
 import Categories from "../Categories/Categories";
 import Sort from "../Sort/Sort";
 import Pagination from "../other/Pagination/Pagination";
+import {searchContext} from "../../App";
+import {useSelector} from "react-redux";
 
-const Content = ({searchValue, setSearchValue}) => {
+const Content = () => {
     const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [page, setPage] = useState(1)
 
-    const [selectedCategory, setSelectedCategory] = useState(0)
+    const selectedSort = useSelector((state) => state.filterPage.sort)
+    const selectedCategory = useSelector((state) => state.filterPage.category)
 
-    const [selectedSort, setSelectedSort] = useState(0)
+    const {searchValue, setSearchValue} = useContext(searchContext)
+
     const listsMenu = ['rating', 'price', 'title']
     let totalCountItemsOnPage = 8
-    const [page, setPage] = useState(1)
 
     useEffect(() => {
         setIsLoading(true)
@@ -33,19 +37,22 @@ const Content = ({searchValue, setSearchValue}) => {
         })
     }, [searchValue])
 
+
     const pizzaComponents = pizzas.map((pizza) => <PizzaCard price={pizza.price} title={pizza.title}
                                                              imgUrl={pizza.imgUrl} sizes={pizza.sizes}
                                                              types={pizza.types} key={pizza.id}/>)
+
+    const skeleton = [...new Array(8)].map((_, index) => <Skeleton key={index}/>)
     return (
         <div className="wrapper">
             <div className="container">
                 <div className="content__top">
-                    <Categories selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-                    <Sort selectedSort={selectedSort} setSelectedSort={setSelectedSort}/>
+                    <Categories selectedFilter={selectedCategory}/>
+                    <Sort selectedSort={selectedSort}/>
                 </div>
                 <h2 className="content__title">Все пиццы</h2>
                 <div className="content__items">
-                    {isLoading ? [...new Array(8)].map((_, index) => <Skeleton key={index}/>) : pizzaComponents}
+                    {isLoading ? skeleton : pizzaComponents}
                 </div>
             </div>
             <Pagination setPage={setPage}/>
