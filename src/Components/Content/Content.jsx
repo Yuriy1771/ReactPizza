@@ -6,16 +6,17 @@ import Categories from "../Categories/Categories";
 import Sort from "../Sort/Sort";
 import Pagination from "../other/Pagination/Pagination";
 import {searchContext} from "../../App";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {setPizzas} from "../../redux/slices/mainSlice";
 
 const Content = () => {
-    const [pizzas, setPizzas] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [page, setPage] = useState(1)
 
-    const selectedSort = useSelector((state) => state.filterPage.sort)
-    const selectedCategory = useSelector((state) => state.filterPage.category)
-
+    const dispatch = useDispatch()
+    const page = useSelector((state) => state.mainPage.currentPagePagination)
+    const selectedSort = useSelector((state) => state.mainPage.sort)
+    const selectedCategory = useSelector((state) => state.mainPage.category)
+    const pizzas = useSelector((state) => state.mainPage.pizzas)
     const {searchValue, setSearchValue} = useContext(searchContext)
 
     const listsMenu = ['rating', 'price', 'title']
@@ -24,7 +25,7 @@ const Content = () => {
     useEffect(() => {
         setIsLoading(true)
         axios.get(`https://67bd631a321b883e790c3eac.mockapi.io/items?&page=${page}&limit=${totalCountItemsOnPage}&sortBy=${listsMenu[selectedSort]}&category=${selectedCategory === 0 ? '' : selectedCategory}`).then(response => {
-            setPizzas(response.data)
+            dispatch(setPizzas(response.data))
             setIsLoading(false)
         })
 
@@ -33,7 +34,7 @@ const Content = () => {
 
     useEffect(() => {
         axios.get(`https://67bd631a321b883e790c3eac.mockapi.io/items?search=${searchValue}`).then(response => {
-            setPizzas(response.data)
+            dispatch(setPizzas(response.data))
         })
     }, [searchValue])
 
@@ -55,7 +56,7 @@ const Content = () => {
                     {isLoading ? skeleton : pizzaComponents}
                 </div>
             </div>
-            <Pagination setPage={setPage}/>
+            <Pagination />
         </div>
     )
 }

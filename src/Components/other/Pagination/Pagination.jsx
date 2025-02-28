@@ -1,7 +1,10 @@
 import React from 'react'
 import styles from './Pagination.module.scss'
+import {useDispatch} from "react-redux";
+import {setCurrentPagePagination} from "../../../redux/slices/mainSlice";
 
-const Pagination = ({setPage}) => {
+const Pagination = (props) => {
+    const dispatch = useDispatch()
 
     let totalItems = 19;
     let pageSize = 5;
@@ -13,7 +16,7 @@ const Pagination = ({setPage}) => {
     }
 
     const onClickPage = (page) => {
-        setPage(page.target.outerText)
+        dispatch(setCurrentPagePagination(page.target.outerText))
     }
 
     return (

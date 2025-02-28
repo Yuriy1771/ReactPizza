@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from "react-redux";
-import {setSort} from "../../redux/slices/filterSlice";
+import {setSort} from "../../redux/slices/mainSlice";
 
 const Sort = ({selectedSort}) => {
     const [editMode, setEditMode] = useState(false)
