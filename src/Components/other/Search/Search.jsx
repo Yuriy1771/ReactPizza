@@ -5,8 +5,6 @@ import closeIcon from '../../../assets/img/clear.png'
 import {searchContext} from "../../../App";
 import lodash from "lodash";
 
-const test = lodash.debounce(() => console.log('lodash'), 1000)
-
 const Search = () => {
     const [value, setValue] = useState('')
     const {setSearchValue} = useContext(searchContext)

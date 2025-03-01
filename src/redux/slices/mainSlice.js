@@ -23,9 +23,14 @@ const mainPage = createSlice({
         setCurrentPagePagination: (state, action) => {
           state.currentPagePagination = action.payload
         },
+        setUrlParams: (state, action) => {
+            state.sort = action.payload.sortParse
+            state.category = action.payload.categoryParse
+            state.currentPagePagination = action.payload.pageParse
+        }
     }
 })
 
-export const {setCategory, setSort, setPizzas, setCurrentPagePagination} = mainPage.actions
+export const {setCategory, setSort, setPizzas, setCurrentPagePagination, setUrlParams} = mainPage.actions
 
 export default mainPage.reducer
